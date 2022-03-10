@@ -17,10 +17,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Usuario " />
+            android:textSize="17dp"
+            android:text="Usuario: " />
 
         <EditText
-            android:id="@+id/txtUsuario_main"
+            android:id="@+id/txtUsuario_login"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:inputType="text"/>
@@ -36,17 +37,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Senha " />
+            android:textSize="17dp"
+            android:text="Senha: " />
 
         <EditText
-            android:id="@+id/txtSenha_main"
+            android:id="@+id/txtSenha_login"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:inputType="number"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnEntrar_main"
+        android:id="@+id/btnEntrar_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
