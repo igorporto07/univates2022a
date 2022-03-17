@@ -24,12 +24,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        setTitle("Login");
+
         context = LoginActivity.this;
 
         txtUsuario = findViewById(R.id.txtUsuario_login);
         txtSenha = findViewById(R.id.txtSenha_login);
         btnEntrar = findViewById(R.id.btnEntrar_login);
+
+        txtUsuario.requestFocus();
 
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override

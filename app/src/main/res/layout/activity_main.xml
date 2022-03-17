@@ -5,32 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    style="@style/Blackground"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-    <EditText
-        android:id="@+id/txtTabuada_main"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"/>
-
     <Button
-        android:id="@+id/btnCalcular_main"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnTabuada_main"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="CALCULAR"/>
+        style="@style/BotaoPrincipal"
+        android:text="Tabuada"/>
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/lblTabuada_main"
+    <Button
+        android:id="@+id/btnCalculadora_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TABUADA" />
+        android:layout_marginBottom="10dp"
+        style="@style/BotaoPrincipal"
+        android:text="Calculadora"/>
+
+    <Button
+        android:id="@+id/btntela3_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        style="@style/BotaoPrincipal"
+        android:text="Tela 3"/>
+
+
 
 </LinearLayout>
