@@ -24,13 +24,28 @@
         style="@style/BotaoPrincipal"
         android:text="Calculadora"/>
 
-    <Button
-        android:id="@+id/btntela3_main"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btnToast_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        style="@style/BotaoPrincipal"
-        android:text="Tela 3"/>
+        style="@style/BotaoSecundario"
+        android:text="Troast"/>
+
+    <Button
+        android:id="@+id/btnSnackbars_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        style="@style/BotaoSecundario"
+        android:text="SnackBars"/>
+
+    </LinearLayout>
 
 
 

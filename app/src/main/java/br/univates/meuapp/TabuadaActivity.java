@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class TabuadaActivity extends AppCompatActivity {
     //Declaração das variáveis
     TextView lblTabuada;
-    Button btnTabuada;
+    Button btnTabuada, btnVoltar;
     EditText txtTabuada;
     Context context;
 
@@ -30,6 +30,7 @@ public class TabuadaActivity extends AppCompatActivity {
         lblTabuada = findViewById(R.id.lblTabuada_tabu);
         txtTabuada = findViewById(R.id.txtTabuada_tabu);
         btnTabuada = findViewById(R.id.btnTabuada_tabu);
+        btnVoltar = findViewById(R.id.btnVoltar_tabu);
 
         //Início do evento do botão
         btnTabuada.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +58,17 @@ public class TabuadaActivity extends AppCompatActivity {
 
             }
         });
+                btnVoltar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //Acessar uma nova activity
+                        Intent intent = new Intent(context, MainActivity.class);
+                        startActivity(intent);
+                        finish();//fecha a tela em questão
+
+                    }
+
+                });
         //Fim do evento do botão
 
     }
