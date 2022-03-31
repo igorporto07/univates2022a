@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">MeuApp</string>
-    <string name="shared_preferences">Chave</string>
+    <string name="shared_preferences">chave</string>
 </resources>

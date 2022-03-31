@@ -47,6 +47,38 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnSalvar_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Salvar"/>
+
+    <Button
+        android:id="@+id/btnExibir_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Exibir"/>
+
+    <Button
+        android:id="@+id/btnListaPix_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        style="@style/BotaoPrincipal"
+        android:text="Lista Pix"/>
+
+
+    <Button
+        android:id="@+id/btnSair_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="end"
+        style="@style/BotaoGradient3"
+        android:text="Sair"/>
+
 
 
 </LinearLayout>
