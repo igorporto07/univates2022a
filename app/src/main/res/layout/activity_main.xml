@@ -62,12 +62,20 @@
         android:text="Exibir"/>
 
     <Button
-        android:id="@+id/btnListaPix_main"
+        android:id="@+id/btnLista_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         style="@style/BotaoPrincipal"
-        android:text="Lista Pix"/>
+        android:text="Lista"/>
+
+    <Button
+        android:id="@+id/btnMapa_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        style="@style/BotaoPrincipal"
+        android:text="Mapa"/>
 
 
     <Button

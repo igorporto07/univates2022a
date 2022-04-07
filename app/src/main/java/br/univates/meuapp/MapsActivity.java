@@ -1,7 +1,15 @@
 package br.univates.meuapp;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationRequest;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -44,9 +52,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //Marcadores
+        LatLng univates = new LatLng(-29.44438457423918, -51.95651341850893);
+        mMap.addMarker(new MarkerOptions().position(univates).title("UNIVATES"));
+
+        LatLng casa = new LatLng(-29.466947701294117, -51.97562653734662);
+        mMap.addMarker(new MarkerOptions().position(casa).title("CASA"));
+
+        LatLng trabalho = new LatLng(-29.463918172121517, -51.96487825929225);
+        mMap.addMarker(new MarkerOptions().position(trabalho).title("TRABALHO"));
+
+
+        //Ferramentas
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(univates,14));//abre mapa com zoom
+        mMap.getUiSettings().setZoomControlsEnabled(true);//Adiciona botão de zomm no mapa
+        mMap.getUiSettings().setCompassEnabled(true);//Adiciona uma bussola no mapa
+
+
     }
+
+
 }

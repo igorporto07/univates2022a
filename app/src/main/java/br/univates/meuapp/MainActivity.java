@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     //Declaração das variáveis
-    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnExibir, btnSalvar, btnSair, btnListaPix;
+    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnExibir, btnSalvar, btnSair, btnLista, btnMapa;
     Context context;
     SharedPreferences sharedPreferences;
 
@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
         btnExibir = findViewById(R.id.btnExibir_main);
         btnSalvar = findViewById(R.id.btnSalvar_main);
         btnSair = findViewById(R.id.btnSair_main);
-        btnListaPix = findViewById(R.id.btnListaPix_main);
+        btnLista = findViewById(R.id.btnLista_main);
+        btnMapa = findViewById(R.id.btnMapa_main);
 
         //Início do evento do botão
         btnTabuada.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnListaPix.setOnClickListener(new View.OnClickListener() {
+        btnLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Acessar uma nova activity
@@ -131,7 +132,15 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        btnMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Acessar uma nova activity
+                Intent intent = new Intent(context, MapsActivity.class);
+                startActivity(intent);
+            }
 
+        });
     }
 
 
