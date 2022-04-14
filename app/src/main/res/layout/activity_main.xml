@@ -77,6 +77,14 @@
         style="@style/BotaoPrincipal"
         android:text="Mapa"/>
 
+    <Button
+        android:id="@+id/btnCadastro_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        style="@style/BotaoGradient4"
+        android:text="Cadastro"/>
+
 
     <Button
         android:id="@+id/btnSair_main"

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    style="@style/Blackground"
+    tools:context=".CadastroActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:text="Nome:"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/txtNome_cadastro"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        style="@style/Teste"
+        android:inputType="text"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:text="Cargo:"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/txtCargo_cadastro"
+        android:layout_width="280dp"
+        style="@style/Teste"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+         <Button
+            android:id="@+id/btnSalvar_cadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BotaoPrincipal"
+            android:text="Salvar"/>
+
+
+        <Button
+            android:id="@+id/btnLimpar_cadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BotaoGradient3"
+            android:text="Limpar"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:text="--#--Cadastros--#--"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+
+
+    <ListView
+        android:id="@+id/Lista_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/Rotulo"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>
