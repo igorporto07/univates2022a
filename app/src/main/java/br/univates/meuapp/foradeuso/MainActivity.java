@@ -1,4 +1,4 @@
-package br.univates.meuapp;
+package br.univates.meuapp.foradeuso;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,9 +13,12 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import br.univates.meuapp.ListaLinguagensActivity;
+import br.univates.meuapp.R;
+
 public class MainActivity extends AppCompatActivity {
     //Declaração das variáveis
-    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnExibir, btnSalvar, btnSair, btnLista, btnMapa, btnCadastro;
+    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnSair, btnLista, btnMapa, btnCadastro;
     Context context;
     SharedPreferences sharedPreferences;
 
@@ -37,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         btnToast = findViewById(R.id.btnToast_main);
         btnSnackbars = findViewById(R.id.btnSnackbars_main);
         btnCalculadora = findViewById(R.id.btnCalculadora_main);
-        btnExibir = findViewById(R.id.btnExibir_main);
-        btnSalvar = findViewById(R.id.btnSalvar_main);
         btnSair = findViewById(R.id.btnSair_main);
         btnLista = findViewById(R.id.btnLista_main);
         btnMapa = findViewById(R.id.btnMapa_main);
@@ -78,31 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        //criar botão pra gravar
-        btnSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("usuario", "Teste");
-                    boolean ret = editor.commit();
-                    if (ret) {
-                        Snackbar.make(btnSnackbars, "Gravado com sucesso!", Snackbar.LENGTH_LONG).show();
-                    }
-                } catch (Exception ex) {
-                    Log.e("CATCH", ex.getMessage());
-                }
-            }
-        });
-
-        //criar botão pra exibir
-        btnExibir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String preferencia = sharedPreferences.getString("usuario", "");
-                Snackbar.make(btnSnackbars, "Login = " + preferencia, Snackbar.LENGTH_LONG).show();
-            }
-        });
 
         btnSair.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Acessar uma nova activity
-                Intent intent = new Intent(context, CadastroActivity.class);
+                Intent intent = new Intent(context, ListaLinguagensActivity.class);
                 startActivity(intent);
             }
 

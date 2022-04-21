@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity
-            android:name=".CadastroActivity"
+            android:name=".CadastroLinguagensActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".ListaLinguagensActivity"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -32,17 +36,17 @@
             android:value="AIzaSyA4Hn9B5Mr2Lm2htLlL7NGdPBHgCdh6kDQ" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".foradeuso.MapsActivity"
             android:exported="false"
             android:label="Mapas" />
         <activity
-            android:name=".ListaActivity"
+            android:name=".foradeuso.ListaActivity"
             android:exported="false" />
         <activity
-            android:name=".TabuadaActivity"
+            android:name=".foradeuso.TabuadaActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".foradeuso.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -52,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".foradeuso.MainActivity"
             android:exported="true" />
     </application>
 

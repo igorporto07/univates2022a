@@ -7,8 +7,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     style="@style/Blackground"
-    tools:context=".CadastroActivity">
-
+    tools:context=".CadastroLinguagensActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,7 +45,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-         <Button
+        <Button
             android:id="@+id/btnSalvar_cadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,22 +61,5 @@
             android:text="Limpar"/>
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/Rotulo"
-        android:text="--#--Cadastros--#--"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"/>
-
-
-
-    <ListView
-        android:id="@+id/Lista_cadastro"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/Rotulo"
-        android:layout_marginTop="15dp"/>
 
 </LinearLayout>

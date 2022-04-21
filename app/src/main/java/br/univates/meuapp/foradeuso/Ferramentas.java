@@ -1,4 +1,4 @@
-package br.univates.meuapp;
+package br.univates.meuapp.foradeuso;
 
 import android.content.Context;
 import android.util.Log;

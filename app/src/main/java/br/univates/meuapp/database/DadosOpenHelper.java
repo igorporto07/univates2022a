@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import br.univates.meuapp.foradeuso.Ferramentas;
+import br.univates.meuapp.tools.Globais;
+
 public class DadosOpenHelper extends SQLiteOpenHelper {
 
     private static final int VERSION = 1; //versão do banco de dados
@@ -24,12 +27,13 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
             sql.append("(");
             sql.append("id INTEGER PRIMARY KEY AUTOINCREMENT, ");
             sql.append("nome VARCHAR(30) NOT NULL, ");
-            sql.append("descricao TEXT, ");
+            sql.append("cargo TEXT ");
             sql.append(")");
             db.execSQL(sql.toString());
 
         }catch (Exception ex){
-            //Globais.exibirMensagem(context, ex.getMessage());
+            Globais.exibirMensagem(context, ex.getMessage());
+            Ferramentas.mostrarAlerta(context,"Alerta", "Erro ao criar tabela");
         }
     }
 
@@ -40,7 +44,7 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
 
 
         }catch (Exception ex){
-
+            Ferramentas.mostrarAlerta(context,"Alerta", "Erro ao atualizar tabela");
         }
     }
 }

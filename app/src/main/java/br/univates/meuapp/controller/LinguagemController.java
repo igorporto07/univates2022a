@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import br.univates.meuapp.database.DadosOpenHelper;
 import br.univates.meuapp.database.Tabelas;
 import br.univates.meuapp.model.Linguagem;
+import br.univates.meuapp.tools.Globais;
 
 public class LinguagemController {
 
@@ -45,7 +46,7 @@ public class LinguagemController {
             return objeto;
 
         }catch (Exception ex){
-            //Globais.exibirMensagem(context, ex.getMessage());
+            Globais.exibirMensagem(context, ex.getMessage());
             return null;
         }
     }
@@ -62,7 +63,7 @@ public class LinguagemController {
             return true;
 
         }catch (Exception ex){
-            //Globais.exibirMensagem(context, ex.getMessage());
+            Globais.exibirMensagem(context, ex.getMessage());
             return false;
         }
     }
@@ -82,7 +83,7 @@ public class LinguagemController {
             return true;
 
         }catch (Exception ex){
-            //Globais.exibirMensagem(context, ex.getMessage());
+            Globais.exibirMensagem(context, ex.getMessage());
             return false;
         }
     }
@@ -98,7 +99,7 @@ public class LinguagemController {
             return true;
 
         }catch (Exception ex){
-            //Globais.exibirMensagem(context, ex.getMessage());
+            Globais.exibirMensagem(context, ex.getMessage());
             return false;
         }
     }
@@ -120,6 +121,7 @@ public class LinguagemController {
                     objeto = new Linguagem();
                     objeto.setId(resultado.getInt(resultado.getColumnIndexOrThrow("id")));
                     objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+                    objeto.setCargo(resultado.getString(resultado.getColumnIndexOrThrow("cargo")));
 
                     listagem.add(objeto);
 
@@ -130,7 +132,7 @@ public class LinguagemController {
             return listagem;
 
         }catch (Exception ex){
-            //Globais.exibirMensagem(context, ex.getMessage());
+            Globais.exibirMensagem(context, ex.getMessage());
             return listagem;
         }
     }

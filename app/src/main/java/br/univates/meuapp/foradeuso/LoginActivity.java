@@ -1,4 +1,4 @@
-package br.univates.meuapp;
+package br.univates.meuapp.foradeuso;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.android.material.snackbar.Snackbar;
+import br.univates.meuapp.R;
 
 public class LoginActivity extends AppCompatActivity {
 

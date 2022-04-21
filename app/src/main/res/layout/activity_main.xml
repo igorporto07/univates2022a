@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     style="@style/Blackground"
-    tools:context=".MainActivity">
+    tools:context=".foradeuso.MainActivity">
 
     <Button
         android:id="@+id/btnTabuada_main"
@@ -46,20 +46,6 @@
         android:text="SnackBars"/>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnSalvar_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Salvar"/>
-
-    <Button
-        android:id="@+id/btnExibir_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Exibir"/>
 
     <Button
         android:id="@+id/btnLista_main"
