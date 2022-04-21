@@ -3,6 +3,7 @@ package br.univates.meuapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,11 +14,13 @@ import java.util.ArrayList;
 
 import br.univates.meuapp.adapter.LinguagemAdapter;
 import br.univates.meuapp.controller.LinguagemController;
+import br.univates.meuapp.foradeuso.MainActivity;
 import br.univates.meuapp.model.Linguagem;
 import br.univates.meuapp.tools.Globais;
 
 public class ListaLinguagensActivity extends AppCompatActivity {
 
+    Button btnNovoCadastro;
     ListView lista;
     ArrayList<Linguagem> listagem;
     LinguagemAdapter adapter;
@@ -33,7 +36,16 @@ public class ListaLinguagensActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_linguagens);
         context = ListaLinguagensActivity.this;
 
+        btnNovoCadastro = findViewById(R.id.btnNovoCadastro_cadastro);
         lista = findViewById(R.id.Lista_cadastro);
+
+        btnNovoCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CadastroLinguagensActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
