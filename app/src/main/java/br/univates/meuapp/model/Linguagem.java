@@ -7,6 +7,7 @@ public class Linguagem {
     private int id;
     private String nome;
     private String cargo;
+    private int favorito;
 
     public int getId() {
         return id;
@@ -31,6 +32,14 @@ public class Linguagem {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public int getFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(int favorito) {
+        this.favorito = favorito;
     }
 
     @Override

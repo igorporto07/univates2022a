@@ -14,9 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
         <activity
+            android:name=".foradeuso.CalculadoraActivity"
+            android:exported="false" />
+        <activity
             android:name=".CadastroLinguagensActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".ListaLinguagensActivity"
             android:exported="false" />

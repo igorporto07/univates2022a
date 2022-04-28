@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import br.univates.meuapp.controller.LinguagemController;
 import br.univates.meuapp.foradeuso.Ferramentas;
@@ -16,6 +18,7 @@ import br.univates.meuapp.tools.Globais;
 
 public class CadastroLinguagensActivity extends AppCompatActivity {
 
+    CheckBox chbFavorito;
     EditText txtNome, txtCargo;
     Linguagem objeto;
     LinguagemController controller;
@@ -29,6 +32,7 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
 
         txtNome = findViewById(R.id.txtNome_cadastro);
         txtCargo = findViewById(R.id.txtCargo_cadastro);
+        chbFavorito = findViewById(R.id.chbFavorito_cadastro);
         context = CadastroLinguagensActivity.this;
 
         Bundle extras = getIntent().getExtras();
@@ -41,6 +45,11 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
             if(objeto != null){
                 txtNome.setText(objeto.getNome());
                 txtCargo.setText(objeto.getCargo());
+                if(objeto.getFavorito() ==1){
+                    chbFavorito.setChecked(true);
+                }else{
+                    chbFavorito.setChecked(false);
+                }
             }
         }else{
             id_linguagem = 0;
@@ -83,6 +92,12 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
             objeto = new Linguagem();
             objeto.setNome(nome);
             objeto.setCargo(cargo);
+
+            if(chbFavorito.isChecked()){
+                objeto.setFavorito(1);
+            }else{
+                objeto.setFavorito(0);
+            }
 
             controller = new LinguagemController(context);
 

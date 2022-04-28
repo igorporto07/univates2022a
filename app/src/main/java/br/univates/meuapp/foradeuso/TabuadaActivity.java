@@ -42,7 +42,7 @@ public class TabuadaActivity extends AppCompatActivity {
                 try {
                     tabuada = Integer.parseInt(txtTabuada.getText().toString());
                 } catch (Exception ex) {
-                    Log.e("CALCULADORA", ex.getMessage());
+                    Log.e("TABUADA", ex.getMessage());
                     Ferramentas.mostrarAlerta(context, "EITAAAA", "Informe um número válido");
                 }
 

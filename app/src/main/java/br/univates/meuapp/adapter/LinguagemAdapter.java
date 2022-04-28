@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -39,9 +40,15 @@ public class LinguagemAdapter extends ArrayAdapter<Linguagem> {
 
                 TextView nome = rowView.findViewById(R.id.lblNome_item_linguagem);
                 TextView cargo = rowView.findViewById(R.id.lblCargo_item_linguagem);
+                ImageView favorito = rowView.findViewById(R.id.imgFavorito_linguagem);
 
                 nome.setText(objeto.getNome());
                 cargo.setText(objeto.getCargo());
+                if(objeto.getFavorito() == 1){
+                    favorito.setVisibility(View.VISIBLE);
+                }else{
+                    favorito.setVisibility(View.GONE);
+                }
 
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
