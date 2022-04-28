@@ -40,26 +40,6 @@
         android:layout_height="wrap_content"
         android:inputType="text"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnSalvar_cadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/BotaoPrincipal"
-            android:text="Salvar"/>
-
-
-        <Button
-            android:id="@+id/btnLimpar_cadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/BotaoGradient3"
-            android:text="Limpar"/>
-
-    </LinearLayout>
 
 </LinearLayout>

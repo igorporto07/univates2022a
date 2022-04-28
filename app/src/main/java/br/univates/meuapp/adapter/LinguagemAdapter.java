@@ -1,6 +1,7 @@
 package br.univates.meuapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.univates.meuapp.CadastroLinguagensActivity;
 import br.univates.meuapp.R;
 import br.univates.meuapp.model.Linguagem;
 
@@ -43,10 +45,10 @@ public class LinguagemAdapter extends ArrayAdapter<Linguagem> {
 
                 rowView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        //Intent tela = new Intent(context, NOVATELAAQUI_Activity.class);
-                        //tela.putExtra("id", objeto.getId());
-                        //context.startActivity(tela);
+                    public void onClick(View v) {//Libera o click na lista
+                        Intent tela = new Intent(context, CadastroLinguagensActivity.class);
+                        tela.putExtra("id", objeto.getId());
+                        context.startActivity(tela);
                     }
                 });
 
