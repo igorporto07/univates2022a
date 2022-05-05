@@ -42,6 +42,7 @@ public class LinguagemController {
                 objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
                 objeto.setCargo(resultado.getString(resultado.getColumnIndexOrThrow("cargo")));
                 objeto.setFavorito(resultado.getInt(resultado.getColumnIndexOrThrow("favorito")));
+                objeto.setNota(resultado.getInt(resultado.getColumnIndexOrThrow("nota")));
             }
 
             return objeto;
@@ -59,6 +60,7 @@ public class LinguagemController {
             valores.put("nome", objeto.getNome());
             valores.put("cargo", objeto.getCargo());
             valores.put("favorito", objeto.getFavorito());
+            valores.put("nota", objeto.getNota());
 
             conexao.insertOrThrow(Tabelas.TB_LINGUAGENS, null, valores);
 
@@ -77,6 +79,7 @@ public class LinguagemController {
             valores.put("nome", objeto.getNome());
             valores.put("cargo", objeto.getCargo());
             valores.put("favorito", objeto.getFavorito());
+            valores.put("nota", objeto.getNota());
 
             String[] parametros = new String[1];
             parametros[0] = String.valueOf(objeto.getId());
@@ -126,6 +129,7 @@ public class LinguagemController {
                     objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
                     objeto.setCargo(resultado.getString(resultado.getColumnIndexOrThrow("cargo")));
                     objeto.setFavorito(resultado.getInt(resultado.getColumnIndexOrThrow("favorito")));
+                    objeto.setNota(resultado.getInt(resultado.getColumnIndexOrThrow("nota")));
 
                     listagem.add(objeto);
 

@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 import br.univates.meuapp.controller.LinguagemController;
 import br.univates.meuapp.foradeuso.Ferramentas;
 import br.univates.meuapp.model.Linguagem;
+import br.univates.meuapp.model.Nota;
 import br.univates.meuapp.tools.Globais;
 
 public class CadastroLinguagensActivity extends AppCompatActivity {
@@ -24,6 +28,7 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
     LinguagemController controller;
     Context context;
     int id_linguagem;
+    Spinner spiNota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
         txtNome = findViewById(R.id.txtNome_cadastro);
         txtCargo = findViewById(R.id.txtCargo_cadastro);
         chbFavorito = findViewById(R.id.chbFavorito_cadastro);
+        spiNota = findViewById(R.id.spiNota_linguagem);
+
         context = CadastroLinguagensActivity.this;
 
         Bundle extras = getIntent().getExtras();
@@ -45,6 +52,7 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
             if(objeto != null){
                 txtNome.setText(objeto.getNome());
                 txtCargo.setText(objeto.getCargo());
+
                 if(objeto.getFavorito() ==1){
                     chbFavorito.setChecked(true);
                 }else{
@@ -54,6 +62,15 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
         }else{
             id_linguagem = 0;
         }
+
+        ArrayList<Nota> notas = new ArrayList<>();
+        notas.add(new Nota(0,"Sem Nota"));
+        notas.add(new Nota(1,"Nota 1"));
+        notas.add(new Nota(2,"Nota 2"));
+        notas.add(new Nota(3,"Nota 3"));
+
+        ArrayAdapter<Nota> adaper = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, notas);
+        spiNota.setAdapter(adaper);
     }
 
     //Funcao para inflar o menu na tela
@@ -76,6 +93,7 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
                 salvar();
 
             case R.id.action_cancel:
+
                 finish();
 
         }
@@ -99,6 +117,13 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
                 objeto.setFavorito(0);
             }
 
+            for(int i = 0; i < spiNota.getAdapter().getCount(); i++){
+                Nota wPos = (Nota) spiNota.getItemAtPosition(i);
+                if(wPos.getId() == objeto.getNota()){
+                    spiNota.setSelection(i);
+                }
+            }
+
             controller = new LinguagemController(context);
 
             boolean retorno = false;
@@ -115,7 +140,7 @@ public class CadastroLinguagensActivity extends AppCompatActivity {
             }
 
         }else{
-            Ferramentas.mostrarAlerta(context, "ALERTA", "Preencha todos os campos!");
+            Globais.exibirMensagem(context, "Preencha todos os campos!");
         }
     }
 

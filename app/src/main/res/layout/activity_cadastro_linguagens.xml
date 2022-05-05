@@ -46,6 +46,10 @@
         android:layout_height="wrap_content"
         android:text="Favorito"/>
 
+    <Spinner
+        android:id="@+id/spiNota_linguagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
