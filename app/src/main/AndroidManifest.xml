@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
         <activity
+            android:name=".CadastroClientesActivity"
+            android:exported="false" />
+        <activity
             android:name=".foradeuso.CalculadoraActivity"
             android:exported="false" />
         <activity

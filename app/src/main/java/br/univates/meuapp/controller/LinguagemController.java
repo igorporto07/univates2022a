@@ -94,11 +94,11 @@ public class LinguagemController {
         }
     }
 
-    public boolean excluir(Linguagem objeto){
+    public boolean excluir(int id){
         try{
 
             String[] parametros = new String[1];
-            parametros[0] = String.valueOf(objeto.getId());
+            parametros[0] = String.valueOf(id);
 
             conexao.delete(Tabelas.TB_LINGUAGENS, "id = ?", parametros);
 

@@ -34,6 +34,15 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
             sql.append(" ) ");
             db.execSQL(sql.toString());
 
+            StringBuilder sql2 = new StringBuilder();
+            sql2.append(" CREATE TABLE IF NOT EXISTS ");
+            sql2.append(Tabelas.TB_CLIENTES);
+            sql2.append(" ( ");
+            sql2.append(" id INTEGER PRIMARY KEY AUTOINCREMENT, ");
+            sql2.append(" nome VARCHAR(30) NOT NULL ");
+            sql2.append(" ) ");
+            db.execSQL(sql2.toString());
+
 
         }catch (Exception ex){
             Globais.exibirMensagem(context, ex.getMessage());

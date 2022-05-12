@@ -13,12 +13,13 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import br.univates.meuapp.CadastroClientesActivity;
 import br.univates.meuapp.ListaLinguagensActivity;
 import br.univates.meuapp.R;
 
 public class MainActivity extends AppCompatActivity {
     //Declaração das variáveis
-    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnSair, btnLista, btnMapa, btnCadastro;
+    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnSair, btnLista, btnMapa, btnCadastro, btnCadastroClientes;
     Context context;
     SharedPreferences sharedPreferences;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btnLista = findViewById(R.id.btnLista_main);
         btnMapa = findViewById(R.id.btnMapa_main);
         btnCadastro = findViewById(R.id.btnCadastro_main);
+        btnCadastroClientes = findViewById(R.id.btnCadastroCliente_main);
 
         //Início do evento do botão
         btnTabuada.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +126,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Acessar uma nova activity
                 Intent intent = new Intent(context, ListaLinguagensActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+        btnCadastroClientes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Acessar uma nova activity
+                Intent intent = new Intent(context, CadastroClientesActivity.class);
                 startActivity(intent);
             }
 
