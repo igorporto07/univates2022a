@@ -40,6 +40,7 @@ public class ClienteController {
                 objeto = new Cliente();
                 objeto.setId(resultado.getInt(resultado.getColumnIndexOrThrow("id")));
                 objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+                objeto.setTelefone(resultado.getString(resultado.getColumnIndexOrThrow("telefone")));
             }
 
             return objeto;
@@ -55,6 +56,7 @@ public class ClienteController {
 
             ContentValues valores = new ContentValues();
             valores.put("nome", objeto.getNome());
+            valores.put("telefone", objeto.getTelefone());
 
             conexao.insertOrThrow(Tabelas.TB_CLIENTES, null, valores);
 
@@ -71,6 +73,7 @@ public class ClienteController {
 
             ContentValues valores = new ContentValues();
             valores.put("nome", objeto.getNome());
+            valores.put("telefone", objeto.getTelefone());
 
             String[] parametros = new String[1];
             parametros[0] = String.valueOf(objeto.getId());
@@ -98,6 +101,38 @@ public class ClienteController {
         }catch (Exception ex){
             Globais.exibirMensagem(context, ex.getMessage());
             return false;
+        }
+    }
+    public ArrayList<Cliente> lista(){
+
+        ArrayList<Cliente> listagem = new ArrayList<>();
+        try{
+
+            StringBuilder sql = new StringBuilder();
+            sql.append("SELECT * FROM ");
+            sql.append(Tabelas.TB_CLIENTES);
+
+            Cursor resultado = conexao.rawQuery(sql.toString(), null);
+            if(resultado.moveToFirst()){
+
+                Cliente objeto;
+                do{
+                    objeto = new Cliente();
+                    objeto.setId(resultado.getInt(resultado.getColumnIndexOrThrow("id")));
+                    objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+                    objeto.setTelefone(resultado.getString(resultado.getColumnIndexOrThrow("telefone")));
+
+                    listagem.add(objeto);
+
+                }while (resultado.moveToNext());
+
+            }
+
+            return listagem;
+
+        }catch (Exception ex){
+            Globais.exibirMensagem(context, ex.getMessage());
+            return listagem;
         }
     }
 }

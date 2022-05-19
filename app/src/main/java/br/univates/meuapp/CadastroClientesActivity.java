@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.santalu.maskara.widget.MaskEditText;
+
 import br.univates.meuapp.controller.ClienteController;
 import br.univates.meuapp.model.Cliente;
 import br.univates.meuapp.tools.Globais;
@@ -16,6 +18,7 @@ import br.univates.meuapp.tools.Globais;
 public class CadastroClientesActivity extends AppCompatActivity {
 
     EditText txtNome;
+    MaskEditText txtTelefone;
     Context context;
     Cliente objeto;
     int id_Cliente;
@@ -27,6 +30,7 @@ public class CadastroClientesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_clientes);
 
         txtNome = findViewById(R.id.txtNome_cadastroCliente);
+        txtTelefone = findViewById(R.id.txtTelefone_cadastroCliente);
 
         context = CadastroClientesActivity.this;
 
@@ -63,6 +67,7 @@ public class CadastroClientesActivity extends AppCompatActivity {
     private void salvar(){
 
         String nome = txtNome.getText().toString().trim();
+        String telefone = txtTelefone.getUnMasked();
 
         if(nome.equals("")) {
             Globais.exibirMensagem(context, "Informe um nome");
@@ -71,6 +76,7 @@ public class CadastroClientesActivity extends AppCompatActivity {
 
         objeto = new Cliente();
         objeto.setNome(nome);
+        objeto.setTelefone(telefone);
 
 
         controller = new ClienteController(context);

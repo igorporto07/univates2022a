@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 
 import br.univates.meuapp.CadastroClientesActivity;
+import br.univates.meuapp.ListaClientesActivity;
 import br.univates.meuapp.ListaLinguagensActivity;
 import br.univates.meuapp.R;
 
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Acessar uma nova activity
-                Intent intent = new Intent(context, CadastroClientesActivity.class);
+                Intent intent = new Intent(context, ListaClientesActivity.class);
                 startActivity(intent);
             }
 

@@ -10,7 +10,7 @@ import br.univates.meuapp.tools.Globais;
 
 public class DadosOpenHelper extends SQLiteOpenHelper {
 
-    private static final int VERSION = 3; //versão do banco de dados
+    private static final int VERSION = 10; //versão do banco de dados
     private static final String NM_BANCO = "banco";
     private Context context;
 
@@ -34,14 +34,15 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
             sql.append(" ) ");
             db.execSQL(sql.toString());
 
-            StringBuilder sql2 = new StringBuilder();
-            sql2.append(" CREATE TABLE IF NOT EXISTS ");
-            sql2.append(Tabelas.TB_CLIENTES);
-            sql2.append(" ( ");
-            sql2.append(" id INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sql2.append(" nome VARCHAR(30) NOT NULL ");
-            sql2.append(" ) ");
-            db.execSQL(sql2.toString());
+            sql = new StringBuilder();
+            sql.append(" CREATE TABLE IF NOT EXISTS ");
+            sql.append(Tabelas.TB_CLIENTES);
+            sql.append(" ( ");
+            sql.append(" id INTEGER PRIMARY KEY AUTOINCREMENT, ");
+            sql.append(" nome VARCHAR(30) NOT NULL, ");
+            sql.append(" telefone VARCHAR(15) NOT NULL ");
+            sql.append(" ) ");
+            db.execSQL(sql.toString());
 
 
         }catch (Exception ex){
@@ -54,7 +55,7 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         try{
             StringBuilder sql;
-            if(newVersion >= 2){
+            if(newVersion >= 2) {
                 try {
                     sql = new StringBuilder();
                     sql.append(" ALTER TABLE ");
@@ -62,7 +63,7 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
                     sql.append(" ADD COLUMN ");
                     sql.append(" favorito BIT ");
                     db.execSQL(sql.toString());
-                }catch (Exception ex){
+                } catch (Exception ex) {
                     Log.e("ALTER_TABLE", ex.getMessage());
                 }
                 try {
@@ -72,12 +73,34 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
                     sql.append(" ADD COLUMN ");
                     sql.append(" nota INTEGER ");
                     db.execSQL(sql.toString());
-                }catch (Exception ex){
+                } catch (Exception ex) {
                     Log.e("ALTER_TABLE", ex.getMessage());
                 }
+                try {
+                    sql = new StringBuilder();
+                    sql.append(" CREATE TABLE IF NOT EXISTS ");
+                    sql.append(Tabelas.TB_CLIENTES);
+                    sql.append(" ( ");
+                    sql.append(" id INTEGER PRIMARY KEY AUTOINCREMENT, ");
+                    sql.append(" nome VARCHAR(30) NOT NULL ");
+                    sql.append(" ) ");
+                    db.execSQL(sql.toString());
+
+                } catch (Exception ex) {
+                    Log.e("CREATE_NEW_TABLE", ex.getMessage());
+                }
+                try {
+                    sql = new StringBuilder();
+                    sql.append(" ALTER TABLE ");
+                    sql.append(Tabelas.TB_CLIENTES);
+                    sql.append(" ADD COLUMN ");
+                    sql.append(" telefone VARCHAR(15) ");
+                    db.execSQL(sql.toString());
+                } catch (Exception ex) {
+                    Log.e("ALTER_TABLE", ex.getMessage());
+                }
+
             }
-
-
         }catch (Exception ex){
             Ferramentas.mostrarAlerta(context,"Alerta", "Erro ao atualizar tabela");
         }

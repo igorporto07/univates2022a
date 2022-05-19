@@ -24,4 +24,23 @@
         style="@style/Teste"
         android:inputType="text"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:text="Telefone:"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <com.santalu.maskara.widget.MaskEditText
+        android:id="@+id/txtTelefone_cadastroCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:mask="(__) _____-____"
+        app:maskCharacter="_"
+        app:maskStyle="normal"
+        style="@style/Teste"/>
+
+
 </LinearLayout>
