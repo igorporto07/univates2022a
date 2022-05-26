@@ -5,6 +5,8 @@
     style="@style/Teste"
     android:orientation="vertical">
 
+
+
     <TextView
         android:id="@+id/lblNome_item_cliente"
         android:layout_width="wrap_content"
@@ -13,12 +15,56 @@
         style="@style/Rotulo"
         android:text="Nome"/>
 
-    <TextView
-        android:id="@+id/lblTelefone_item_cliente"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nascimento:"
+            android:textSize="17dp"
+            style="@style/RotuloBlack"/>
+
+    <TextView
+        android:id="@+id/lblData_item_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="15dp"
-        style="@style/Blackground"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="10dp"
+        style="@style/ItenList"
+        android:text="Data"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefone:"
+            android:textSize="17dp"
+            style="@style/RotuloBlack"/>
+
+    <TextView
+        android:id="@+id/lblTelefone_item_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="10dp"
+        style="@style/ItenList"
         android:text="Telefone"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -18,7 +18,7 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/txtNome_cadastroCliente"
+        android:id="@+id/txtNome_cliente"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         style="@style/Teste"
@@ -33,7 +33,7 @@
         android:layout_marginTop="20dp"/>
 
     <com.santalu.maskara.widget.MaskEditText
-        android:id="@+id/txtTelefone_cadastroCliente"
+        android:id="@+id/txtTelefone_cliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -41,6 +41,28 @@
         app:maskCharacter="_"
         app:maskStyle="normal"
         style="@style/Teste"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:text="Data de nascimento:"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/txtData_cliente"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        style="@style/Teste"
+        android:enabled="true"/>
+
+    <Button
+        android:id="@+id/btnExcluir_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BotaoGradient3"
+        android:text="Excluir"/>
 
 
 </LinearLayout>

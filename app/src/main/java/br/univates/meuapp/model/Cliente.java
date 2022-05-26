@@ -1,11 +1,14 @@
 package br.univates.meuapp.model;
 
+import java.util.Date;
+
 public class Cliente {
 
-    int id;
-    String nome;
-    String data;
-    String telefone;
+    private int id;
+    private String nome;
+    private String data;
+    private String telefone;
+    private String data_nascimento;
 
     public int getId() {
         return id;
@@ -37,5 +40,13 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getData_nascimento() {
+        return data_nascimento;
+    }
+
+    public void setData_nascimento(String data_nascimento) {
+        this.data_nascimento = data_nascimento;
     }
 }

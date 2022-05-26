@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import br.univates.meuapp.CadastroClientesActivity;
 import br.univates.meuapp.R;
 import br.univates.meuapp.model.Cliente;
+import br.univates.meuapp.tools.Globais;
 
 public class ClienteAdapter extends ArrayAdapter<Cliente> {
 
@@ -39,9 +40,12 @@ public class ClienteAdapter extends ArrayAdapter<Cliente> {
 
             TextView nome = rowView.findViewById(R.id.lblNome_item_cliente);
             TextView telefone = rowView.findViewById(R.id.lblTelefone_item_cliente);
+            TextView data = rowView.findViewById(R.id.lblData_item_cliente);
 
             nome.setText(objeto.getNome());
             telefone.setText(objeto.getTelefone());
+            String data_formatada = Globais.converterData(objeto.getData_nascimento(), "yyyy-MM-dd", "dd/MM/yyyy");
+            data.setText(data_formatada);
 
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
