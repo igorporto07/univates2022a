@@ -170,12 +170,19 @@ public class CadastroClientesActivity extends AppCompatActivity {
     }
 
     private void salvar(){
-
+        //puxa tudo que foi preenchido e formata
         String nome = txtNome.getText().toString().trim();
-        String telefone = txtTelefone.getMasked().trim();
-        String data = txtDataNascimento.getText().toString();
-        String cpf = txtCpf.getUnMasked().trim();
 
+        String telefone = txtTelefone.getText().toString().trim();
+        telefone = Globais.apenasNumeros(telefone);
+
+        String data = txtDataNascimento.getText().toString();
+        String data_formatada = Globais.converterData(data, "dd/MM/yyyy", "yyyy-MM-dd");
+
+        String cpf = txtCpf.getText().toString().trim();
+        cpf = Globais.apenasNumeros(cpf);
+
+        //Valida se algum campo estava vazio
         if(nome.equals("")) {
             Globais.exibirMensagem(context, "Informe um nome");
             return;
@@ -189,9 +196,7 @@ public class CadastroClientesActivity extends AppCompatActivity {
             return;
         }
 
-        String data_formatada = Globais.converterData(data, "dd/MM/yyyy", "yyyy-MM-dd");
-
-
+        //Preenche o objeto no banco de dados
         objeto = new Cliente();
         objeto.setNome(nome);
         objeto.setTelefone(telefone);

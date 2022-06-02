@@ -5,6 +5,8 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Globais {
 
@@ -65,6 +67,19 @@ public class Globais {
 
         }catch (Exception ex){
             return "";
+        }
+    }
+
+    public static boolean validarEmail(String email){
+        try {
+            String regx = "^[A-Za-z0-9+_.-]+@(.+)$";
+            Pattern pattern = Pattern.compile(regx);
+
+            Matcher matcher = pattern.matcher(email);
+            return matcher.matches();
+
+        }catch (Exception ex){
+            return false;
         }
     }
 
