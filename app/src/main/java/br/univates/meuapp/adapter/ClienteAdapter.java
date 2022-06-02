@@ -41,11 +41,20 @@ public class ClienteAdapter extends ArrayAdapter<Cliente> {
             TextView nome = rowView.findViewById(R.id.lblNome_item_cliente);
             TextView telefone = rowView.findViewById(R.id.lblTelefone_item_cliente);
             TextView data = rowView.findViewById(R.id.lblData_item_cliente);
+            TextView cpf = rowView.findViewById(R.id.lblCpf_item_cliente);
 
             nome.setText(objeto.getNome());
-            telefone.setText(objeto.getTelefone());
+
+            String telefone_formatado = Globais.telefone_formatado(objeto.getTelefone());
+            telefone.setText(telefone_formatado);
+            //telefone.setText(objeto.getTelefone());
+
             String data_formatada = Globais.converterData(objeto.getData_nascimento(), "yyyy-MM-dd", "dd/MM/yyyy");
             data.setText(data_formatada);
+
+            String cpf_formatado = Globais.cpf_formatado(objeto.getCpf());
+            cpf.setText(cpf_formatado);
+            //cpf.setText(objeto.getCpf());
 
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override

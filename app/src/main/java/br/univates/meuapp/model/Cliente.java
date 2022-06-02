@@ -9,6 +9,7 @@ public class Cliente {
     private String data;
     private String telefone;
     private String data_nascimento;
+    private String cpf;
 
     public int getId() {
         return id;
@@ -48,5 +49,13 @@ public class Cliente {
 
     public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

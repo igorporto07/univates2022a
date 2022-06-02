@@ -29,7 +29,7 @@ import br.univates.meuapp.tools.Globais;
 public class CadastroClientesActivity extends AppCompatActivity {
 
     EditText txtNome, txtDataNascimento;
-    MaskEditText txtTelefone;
+    MaskEditText txtTelefone, txtCpf;
     Context context;
     Cliente objeto;
     int id_Cliente;
@@ -44,6 +44,7 @@ public class CadastroClientesActivity extends AppCompatActivity {
         txtNome = findViewById(R.id.txtNome_cliente);
         txtTelefone = findViewById(R.id.txtTelefone_cliente);
         txtDataNascimento = findViewById(R.id.txtData_cliente);
+        txtCpf = findViewById(R.id.txtCpf_cliente);
         btnExcluir = findViewById(R.id.btnExcluir_cliente);
 
         context = CadastroClientesActivity.this;
@@ -62,6 +63,7 @@ public class CadastroClientesActivity extends AppCompatActivity {
             }
         });
 
+        //Verifica se veio ID na tela anterior
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             id_Cliente = extras.getInt("id", 0);
@@ -71,9 +73,15 @@ public class CadastroClientesActivity extends AppCompatActivity {
             objeto = controller.buscar(id_Cliente);
             if(objeto != null){
                 txtNome.setText(objeto.getNome());
-                txtTelefone.setText(objeto.getTelefone());
+
+                String telefone_formatado = Globais.telefone_formatado(objeto.getTelefone());
+                txtTelefone.setText(telefone_formatado);
+
                 String data_formatada = Globais.converterData(objeto.getData_nascimento(), "yyyy-MM-dd", "dd/MM/yyyy");
                 txtDataNascimento.setText(data_formatada);
+
+                String cpf_formatado = Globais.cpf_formatado(objeto.getCpf());
+                txtCpf.setText(cpf_formatado);
 
             }
 
@@ -164,20 +172,31 @@ public class CadastroClientesActivity extends AppCompatActivity {
     private void salvar(){
 
         String nome = txtNome.getText().toString().trim();
-        String telefone = txtTelefone.getUnMasked().trim();
+        String telefone = txtTelefone.getMasked().trim();
         String data = txtDataNascimento.getText().toString();
+        String cpf = txtCpf.getUnMasked().trim();
 
         if(nome.equals("")) {
             Globais.exibirMensagem(context, "Informe um nome");
             return;
         }
+        if(telefone.equals("")) {
+            Globais.exibirMensagem(context, "Informe um telefone");
+            return;
+        }
+        if(cpf.equals("")) {
+            Globais.exibirMensagem(context, "Informe um cpf");
+            return;
+        }
 
         String data_formatada = Globais.converterData(data, "dd/MM/yyyy", "yyyy-MM-dd");
+
 
         objeto = new Cliente();
         objeto.setNome(nome);
         objeto.setTelefone(telefone);
         objeto.setData_nascimento(data_formatada);
+        objeto.setCpf(cpf);
 
 
         controller = new ClienteController(context);

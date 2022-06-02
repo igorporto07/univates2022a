@@ -42,6 +42,7 @@ public class ClienteController {
                 objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
                 objeto.setTelefone(resultado.getString(resultado.getColumnIndexOrThrow("telefone")));
                 objeto.setData_nascimento(resultado.getString(resultado.getColumnIndexOrThrow("data_nascimento")));
+                objeto.setCpf(resultado.getString(resultado.getColumnIndexOrThrow("cpf")));
             }
 
             return objeto;
@@ -59,6 +60,7 @@ public class ClienteController {
             valores.put("nome", objeto.getNome());
             valores.put("telefone", objeto.getTelefone());
             valores.put("data_nascimento", objeto.getData_nascimento());
+            valores.put("cpf", objeto.getCpf());
 
             conexao.insertOrThrow(Tabelas.TB_CLIENTES, null, valores);
 
@@ -77,6 +79,7 @@ public class ClienteController {
             valores.put("nome", objeto.getNome());
             valores.put("telefone", objeto.getTelefone());
             valores.put("data_nascimento", objeto.getData_nascimento());
+            valores.put("cpf", objeto.getCpf());
 
             String[] parametros = new String[1];
             parametros[0] = String.valueOf(objeto.getId());
@@ -125,6 +128,7 @@ public class ClienteController {
                     objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
                     objeto.setTelefone(resultado.getString(resultado.getColumnIndexOrThrow("telefone")));
                     objeto.setData_nascimento(resultado.getString(resultado.getColumnIndexOrThrow("data_nascimento")));
+                    objeto.setCpf(resultado.getString(resultado.getColumnIndexOrThrow("cpf")));
 
                     listagem.add(objeto);
 

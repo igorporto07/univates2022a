@@ -57,6 +57,24 @@
         style="@style/Teste"
         android:enabled="true"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:text="CPF:"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <com.santalu.maskara.widget.MaskEditText
+        android:id="@+id/txtCpf_cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:mask="___.___.___-__"
+        app:maskCharacter="_"
+        app:maskStyle="normal"
+        style="@style/Teste"/>
+
     <Button
         android:id="@+id/btnExcluir_cliente"
         android:layout_width="wrap_content"
