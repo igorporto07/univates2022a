@@ -8,11 +8,27 @@
         <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/drawable/button_border.xml" value="0.1" />
         <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/drawable/button_gradient.xml" value="0.1" />
         <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/drawable/button_gradient2.xml" value="0.204" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/drawable/button_gradient3.xml" value="0.332" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/drawable/button_gradient4.xml" value="0.218" />
         <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.204" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_cadastro.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_cadastro_clientes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_cadastro_linguagens.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_calculadora.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_lista.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_lista_clientes.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_lista_linguagens.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_lista_pix.xml" value="0.1" />
         <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_login.xml" value="0.21203703703703702" />
-        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_main.xml" value="0.4840370751802266" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_main.xml" value="0.41767068273092367" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_maps.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_marca.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_tabuada.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_tabuada2.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_veiculo.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/item_lista_cliente.xml" value="0.33" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/layout/item_lista_linguagem.xml" value="0.33" />
+        <entry key="..\:/Users/igor.porto/AndroidStudioProjects/MeuApp/app/src/main/res/menu/menu_cad.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/jdhein/AndroidStudioProjects/MeuApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/jdhein/AndroidStudioProjects/MeuApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/jdhein/AndroidStudioProjects/MeuApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

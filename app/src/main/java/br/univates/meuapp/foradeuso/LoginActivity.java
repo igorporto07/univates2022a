@@ -31,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
 
         context = LoginActivity.this;
 
+        String senha = "123";
+
         String chave_preference = getString(R.string.shared_preferences);
 
         sharedPreferences = getSharedPreferences(chave_preference, MODE_PRIVATE);

@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
         <activity
+            android:name=".ModeloActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MarcaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VeiculoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListaClientesActivity"
             android:exported="false" />
         <activity
