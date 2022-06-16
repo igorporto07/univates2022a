@@ -9,42 +9,54 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import com.santalu.maskara.widget.MaskEditText;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import br.univates.meuapp.controller.ClienteController;
+import br.univates.meuapp.controller.MarcaController;
+import br.univates.meuapp.controller.ModeloController;
 import br.univates.meuapp.controller.VeiculoController;
 import br.univates.meuapp.model.Cliente;
+import br.univates.meuapp.model.Marca;
+import br.univates.meuapp.model.Modelo;
+import br.univates.meuapp.model.Nota;
 import br.univates.meuapp.model.Veiculo;
 import br.univates.meuapp.tools.Globais;
 
 public class VeiculoActivity extends AppCompatActivity {
 
-    EditText txtMarca, txtModelo, txtPlaca,txtAno;
+    EditText txtPlaca,txtAno;
     Context context;
     Veiculo objeto;
     int id_Veiculo;
     VeiculoController controller;
     Button btnExcluir;
+    Spinner spiMarca, spiModelo;
+    ArrayList<br.univates.meuapp.model.Marca> Marca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_veiculo);
 
-        txtMarca = findViewById(R.id.txtMarca_veiculo);
-        txtModelo = findViewById(R.id.txtModelo_veiculo);
         txtPlaca = findViewById(R.id.txtplaca_veiculo);
         txtAno = findViewById(R.id.txtAno_veiculo);
         btnExcluir = findViewById(R.id.btnExcluir_cliente);
+        spiMarca = findViewById(R.id.spiMarca_veiculo);
+        spiModelo = findViewById(R.id.spiModelo_veiculo);
 
         context = VeiculoActivity.this;
 
@@ -62,6 +74,39 @@ public class VeiculoActivity extends AppCompatActivity {
             }
         });
 
+        spiMarca.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Marca marca = (Marca) spiMarca.getSelectedItem();
+
+                //Spinner Modelo
+                ModeloController objModeloController = new ModeloController(context);
+                ArrayList<Modelo> listamodelo = objModeloController.lista(marca.getId());
+
+                ArrayAdapter<Modelo> adapter_modelos = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, listamodelo);
+
+                spiModelo.setAdapter(adapter_modelos);
+                //...
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        //Spinner Marca
+        MarcaController objMarcaController = new MarcaController(context);
+        ArrayList<Marca> listamarca = objMarcaController.lista();
+
+        ArrayAdapter<Marca> adapter_marcas = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, listamarca);
+
+        spiMarca.setAdapter(adapter_marcas);
+        //...
+
+
+
+
         //Verifica se veio ID na tela anterior
         Bundle extras = getIntent().getExtras();
         if(extras != null){
@@ -71,10 +116,32 @@ public class VeiculoActivity extends AppCompatActivity {
             controller = new VeiculoController(context);
             objeto = controller.buscar(id_Veiculo);
             if(objeto != null){
-                txtMarca.setId(objeto.getId_marca());
-                txtModelo.setId(objeto.getId_modelo());
                 txtPlaca.setText(objeto.getPlaca());
                 txtAno.setText(objeto.getAno_fabricacao());
+            }
+            //preenchendo o spinner da Marca
+            for(int i = 0; i < spiMarca.getAdapter().getCount(); i++){
+                Marca marca = (Marca) spiMarca.getItemAtPosition(i);
+                if(marca.getId() == objeto.getId_marca()){
+                    spiMarca.setSelection(i);
+                    break;
+                }
+            }
+
+            ModeloController objModeloController = new ModeloController(context);
+            ArrayList<Modelo> listamodelo = objModeloController.lista(objeto.getId_marca());
+
+            ArrayAdapter<Modelo> adapter_modelos = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, listamodelo);
+
+            spiModelo.setAdapter(adapter_modelos);
+
+            //preenchendo o spinner do Modelo
+            for(int i = 0; i < spiModelo.getAdapter().getCount(); i++){
+                Modelo modelo = (Modelo) spiModelo.getItemAtPosition(i);
+                if(modelo.getId() == objeto.getId_modelo()){
+                    spiModelo.setSelection(i);
+                    break;
+                }
             }
 
         }else{
@@ -115,17 +182,17 @@ public class VeiculoActivity extends AppCompatActivity {
 
     private void salvar(){
         //puxa tudo que foi preenchido
-        int marca = txtMarca.getId();
-        int modelo = txtModelo.getId();
         String placa = txtPlaca.getText().toString().trim();
         String ano = txtAno.getText().toString().trim();
+        Marca marca = (Marca) spiMarca.getSelectedItem();
+        Modelo modelo = (Modelo) spiModelo.getSelectedItem();
 
         //Valida se algum campo estava vazio
-        if(marca < 0 ) {
+        if(marca.getId() < 1 ) {
             Globais.exibirMensagem(context, "Informe uma marca");
             return;
         }
-        if(modelo < 0) {
+        if(modelo.getId() < 1) {
             Globais.exibirMensagem(context, "Informe um modelo");
             return;
         }
@@ -140,8 +207,8 @@ public class VeiculoActivity extends AppCompatActivity {
 
         //Preenche o objeto no banco de dados
         objeto = new Veiculo();
-        objeto.setId_marca(marca);
-        objeto.setId_modelo(modelo);
+        objeto.setId_marca(marca.getId());
+        objeto.setId_modelo(modelo.getId());
         objeto.setPlaca(placa);
         objeto.setAno_fabricacao(ano);
 
@@ -163,4 +230,6 @@ public class VeiculoActivity extends AppCompatActivity {
 
 
     }
+
+
 }

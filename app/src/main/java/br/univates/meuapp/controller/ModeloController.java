@@ -40,6 +40,7 @@ public class ModeloController {
                 objeto = new Modelo();
                 objeto.setId(resultado.getInt(resultado.getColumnIndexOrThrow("id")));
                 objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+                objeto.setId_marca(resultado.getInt(resultado.getColumnIndexOrThrow("id_marca")));
             }
 
             return objeto;
@@ -55,6 +56,7 @@ public class ModeloController {
 
             ContentValues valores = new ContentValues();
             valores.put("nome", objeto.getNome());
+            valores.put("id_marca", objeto.getId_marca());
 
             conexao.insertOrThrow(Tabelas.TB_MODELOS, null, valores);
 
@@ -71,6 +73,7 @@ public class ModeloController {
 
             ContentValues valores = new ContentValues();
             valores.put("nome", objeto.getNome());
+            valores.put("id_marca", objeto.getId_marca());
 
             String[] parametros = new String[1];
             parametros[0] = String.valueOf(objeto.getId());
@@ -117,6 +120,41 @@ public class ModeloController {
                     objeto = new Modelo();
                     objeto.setId(resultado.getInt(resultado.getColumnIndexOrThrow("id")));
                     objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+                    objeto.setId_marca(resultado.getInt(resultado.getColumnIndexOrThrow("id_marca")));
+
+                    listagem.add(objeto);
+
+                }while (resultado.moveToNext());
+
+            }
+
+            return listagem;
+
+        }catch (Exception ex){
+            Globais.exibirMensagem(context, ex.getMessage());
+            return listagem;
+        }
+    }
+
+    public ArrayList<Modelo> lista(int marca){
+
+        ArrayList<Modelo> listagem = new ArrayList<>();
+        try{
+
+            StringBuilder sql = new StringBuilder();
+            sql.append("SELECT * FROM ");
+            sql.append(Tabelas.TB_MODELOS);
+            sql.append(" WHERE id_marca = " + marca);
+
+            Cursor resultado = conexao.rawQuery(sql.toString(), null);
+            if(resultado.moveToFirst()){
+
+                Modelo objeto;
+                do{
+                    objeto = new Modelo();
+                    objeto.setId(resultado.getInt(resultado.getColumnIndexOrThrow("id")));
+                    objeto.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+                    objeto.setId_marca(resultado.getInt(resultado.getColumnIndexOrThrow("id_marca")));
 
                     listagem.add(objeto);
 

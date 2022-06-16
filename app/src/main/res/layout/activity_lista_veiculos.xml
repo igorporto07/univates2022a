@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListaVeiculosActivity"
+    android:orientation="vertical"
+    style="@style/Blackground">
+
+    <Button
+        android:id="@+id/btnNovoCadastro_veiculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        style="@style/BotaoSecundario"
+        android:text="Novo Cadastro"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:gravity="center"
+        android:text="--#--Lista dos Veiculos--#--"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+
+
+    <ListView
+        android:id="@+id/Lista_veiculo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/Rotulo"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>

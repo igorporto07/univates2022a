@@ -17,12 +17,10 @@
         android:textSize="20dp"
         android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/txtMarca_veiculo"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        style="@style/Teste"
-        android:inputType="text"/>
+    <Spinner
+        android:id="@+id/spiMarca_veiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,12 +30,10 @@
         android:textSize="20dp"
         android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/txtModelo_veiculo"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        style="@style/Teste"
-        android:inputType="text"/>
+    <Spinner
+        android:id="@+id/spiModelo_veiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"

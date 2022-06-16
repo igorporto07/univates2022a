@@ -16,11 +16,12 @@ import com.google.android.material.snackbar.Snackbar;
 import br.univates.meuapp.CadastroClientesActivity;
 import br.univates.meuapp.ListaClientesActivity;
 import br.univates.meuapp.ListaLinguagensActivity;
+import br.univates.meuapp.ListaVeiculosActivity;
 import br.univates.meuapp.R;
 
 public class MainActivity extends AppCompatActivity {
     //Declaração das variáveis
-    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnSair, btnLista, btnMapa, btnCadastro, btnCadastroClientes;
+    Button btnTabuada, btnCalculadora, btnToast, btnSnackbars, btnSair, btnLista, btnMapa, btnCadastro, btnCadastroClientes, btnCadastroVeiculo;
     Context context;
     SharedPreferences sharedPreferences;
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         btnMapa = findViewById(R.id.btnMapa_main);
         btnCadastro = findViewById(R.id.btnCadastro_main);
         btnCadastroClientes = findViewById(R.id.btnCadastroCliente_main);
+        btnCadastroVeiculo = findViewById(R.id.btnCadastroVeiculo_main);
 
         //Início do evento do botão
         btnTabuada.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +139,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Acessar uma nova activity
                 Intent intent = new Intent(context, ListaClientesActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+        btnCadastroVeiculo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Acessar uma nova activity
+                Intent intent = new Intent(context, ListaVeiculosActivity.class);
                 startActivity(intent);
             }
 

@@ -10,7 +10,7 @@ import br.univates.meuapp.tools.Globais;
 
 public class DadosOpenHelper extends SQLiteOpenHelper {
 
-    private static final int VERSION = 15; //versão do banco de dados
+    private static final int VERSION = 17; //versão do banco de dados
     private static final String NM_BANCO = "banco";
     private Context context;
 
@@ -61,7 +61,9 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
             sql.append(Tabelas.TB_MODELOS);
             sql.append(" ( ");
             sql.append(" id INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sql.append(" nome VARCHAR(30) NOT NULL ");
+            sql.append(" nome VARCHAR(30) NOT NULL, ");
+            sql.append(" id_marca INTEGER, ");
+            sql.append(" CONSTRAINT fk_marca FOREIGN KEY (id_marca) REFERENCES marcas (id) ");
             sql.append(" ) ");
             db.execSQL(sql.toString());
 
@@ -194,6 +196,18 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
 
                 } catch (Exception ex) {
                     Log.e("INSERT_TABLE", ex.getMessage());
+                }
+
+                try {
+                    sql = new StringBuilder();
+                    sql.append(" ALTER TABLE ");
+                    sql.append(Tabelas.TB_MODELOS);
+                    sql.append(" ADD COLUMN ");
+                    sql.append(" id_marca INTEGER ");
+                    sql.append(" CONSTRAINT fk_marca REFERENCES marcas (id) ");
+                    db.execSQL(sql.toString());
+                } catch (Exception ex) {
+                    Log.e("ALTER_TABLE", ex.getMessage());
                 }
 
             }

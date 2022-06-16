@@ -24,6 +24,19 @@
         style="@style/Teste"
         android:inputType="text"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Rotulo"
+        android:text="Marca:"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <Spinner
+        android:id="@+id/spiMarca_modelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/btnExcluir_modelo"
         android:layout_width="wrap_content"
